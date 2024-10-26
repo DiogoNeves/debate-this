@@ -23,7 +23,5 @@ audio = client.generate(
   model="eleven_multilingual_v2"
 )
 
-play(audio)
 save(audio, "output/speech.mp3")
-
 print("Audio file generated successfully: output/speech.mp3")
