@@ -6,10 +6,7 @@ from elevenlabs.client import AsyncElevenLabs
 # Load environment variables
 load_dotenv()
 
-# Get API key from environment variable
 api_key = os.getenv("ELEVENLABS_API_KEY")
-
-# Initialize AsyncElevenLabs client
 eleven = AsyncElevenLabs(api_key=api_key)
 
 async def print_models() -> None:
@@ -24,5 +21,4 @@ async def print_models() -> None:
         print(f"  Description: {model.description}")
         print()
 
-# Run the async function
 asyncio.run(print_models())

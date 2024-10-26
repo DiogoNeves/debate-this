@@ -7,7 +7,6 @@ from elevenlabs.client import ElevenLabs
 # Load environment variables
 load_dotenv()
 
-# Get API key from environment variable
 api_key = os.getenv("ELEVENLABS_API_KEY")
 client = ElevenLabs(api_key=api_key)
 
