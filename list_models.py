@@ -1,18 +1,18 @@
-import asyncio
 import os
 from dotenv import load_dotenv
-from elevenlabs.client import AsyncElevenLabs
+from elevenlabs.client import ElevenLabs
 
 # Load environment variables
 load_dotenv()
 
 api_key = os.getenv("ELEVENLABS_API_KEY")
-eleven = AsyncElevenLabs(api_key=api_key)
+client = ElevenLabs(api_key=api_key)
 
-async def print_models() -> None:
+
+def print_models() -> None:
     print("Requesting models")
-    models = await eleven.models.get_all()
-    
+    models = client.models.get_all()
+
     print("Available models:")
     for model in models:
         if not model.can_do_text_to_speech:
@@ -21,4 +21,6 @@ async def print_models() -> None:
         print(f"  Description: {model.description}")
         print()
 
-asyncio.run(print_models())
+
+if __name__ == "__main__":
+    print_models()

@@ -17,11 +17,17 @@ text = '''"How dare you interrupt me while I'm working!" he shouted angrily.
 "ENOUGH!" he bellowed with rage.
 "I've had it with these constant disruptions!"'''
 
-audio = client.generate(
-  text=text,
-  voice="Brian",
-  model="eleven_multilingual_v2"
-)
 
-save(audio, "output/speech.mp3")
-print("Audio file generated successfully: output/speech.mp3")
+def generate_speech():
+    audio = client.generate(
+        text=text,
+        voice="Brian",
+        model="eleven_multilingual_v2"
+    )
+
+    save(audio, "output/speech.mp3")
+    print("Audio file generated successfully: output/speech.mp3")
+
+
+if __name__ == "__main__":
+    generate_speech()
