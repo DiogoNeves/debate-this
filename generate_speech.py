@@ -25,8 +25,9 @@ def generate_speech():
         model="eleven_multilingual_v2"
     )
 
-    save(audio, "output/speech.mp3")
-    print("Audio file generated successfully: output/speech.mp3")
+    output_path = "output/speech.mp3"
+    save(audio, output_path)
+    print(f"Audio file generated successfully: {output_path}")
 
 
 if __name__ == "__main__":
