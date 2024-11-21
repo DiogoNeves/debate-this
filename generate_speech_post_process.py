@@ -2,12 +2,21 @@ import requests
 import os
 import json
 import base64
+from dataclasses import dataclass
 from dotenv import load_dotenv
+
 
 # Load environment variables
 load_dotenv()
 
 TEXT_TO_SPEECH_URL = "https://api.elevenlabs.io/v1/text-to-speech"
+
+
+@dataclass
+class Alignments:
+    characters: list[str]
+    character_start_times_seconds: list[float]
+    character_end_times_seconds: list[float]
 
 
 def _get_headers():
@@ -18,12 +27,44 @@ def _get_headers():
     }
 
 
-def _parse_response(response: requests.Response) -> tuple[bytes, dict]:
+def _parse_response(response: requests.Response) -> tuple[bytes, Alignments]:
     json_string = response.content.decode("utf-8")
     response_dict = json.loads(json_string)
 
     audio_bytes = base64.b64decode(response_dict["audio_base64"])
-    return audio_bytes, response_dict["alignment"]
+    return audio_bytes, Alignments(**response_dict["alignment"])
+
+
+def _get_ranges_to_keep(alignment: Alignments) -> list[tuple[int, int]]:
+    """Create a list of start and end time ranges, in seconds, to keep in the
+    audio.
+    
+    The text we want to keep is enclosed in double quotes.
+    
+    Example input:
+    ```
+    "This is the text we want to keep." - he said.
+    "Another text." - she said.
+    ```
+    We want to keep:
+    ```
+    This is the text we want to keep.
+    Another text.
+    ```
+    Excluding quotes.
+    """
+    ranges = []
+    start = None
+
+    for i, character in enumerate(alignment.characters):
+        if character == '"':
+            if start is None:
+                start = alignment.character_end_times_seconds[i]
+            else:
+                ranges.append((start, alignment.character_start_times_seconds[i]))
+                start = None
+
+    return ranges
 
 
 def _save_audio(audio_bytes: bytes) -> None:
@@ -39,7 +80,7 @@ def generate_speech():
     url = f"{TEXT_TO_SPEECH_URL}/{voice_id}/with-timestamps"
 
     text = '''"How dare you interrupt me while I'm working!" - he shouted angrily.
-"This is absolutely ridiculous," -he growled in frustration.
+"This is absolutely ridiculous," - he growled in frustration.
 "I can't believe I have to deal with this nonsense!" - he exclaimed.
 "ENOUGH!" - he bellowed with rage.
 "I've had it with these constant disruptions!"'''
@@ -61,6 +102,9 @@ def generate_speech():
     response.raise_for_status()
 
     audio_bytes, alignment = _parse_response(response)
+    ranges_to_keep = _get_ranges_to_keep(alignment)
+
+    print("Ranges to keep:", ranges_to_keep)
     _save_audio(audio_bytes)
     print(alignment)
 
