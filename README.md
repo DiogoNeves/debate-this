@@ -95,12 +95,34 @@ This will generate two files in the `output` directory:
 - `requirements.txt`: Contains the Python package dependencies needed for
   the project.
 
-## How It Works
+# How It Works
 
 The technique uses a specific prompt structure to control the emotional
 delivery of the speech. Let's break down the approach:
 
-### 1. Prompt Structure
+## 1. Understanding the Prompt Structure
+
+### Scene Setting: _Sets the Emotional Stage_
+
+**_A tech support agent slowly losing their professional composure._**
+
+The **scene setting** provides context for the AI, establishing the emotional baseline.  
+Think of this as narrating the atmosphere or mood, just like introducing a scene in a story.
+
+### Dialogue with Emotional Descriptions: _The Heart of the Prompt_
+
+**_"Thank you for calling tech support, how may I assist you today?"_**  
+**_— she said with rehearsed cheerfulness._**
+
+This section combines the **actual speech (in quotes)** with **descriptive emotional tags**.  
+The dialogue drives the spoken content, while the emotions guide tone and delivery.
+
+- **Dialogue:**  
+  _"Have you tried turning it off and on again?"_
+- **Emotion Description:**  
+  _— she asked professionally._
+
+### Full Example
 
 ```python
 SPEECH_PROMPT = '''A tech support agent slowly losing their professional composure.
@@ -110,15 +132,7 @@ SPEECH_PROMPT = '''A tech support agent slowly losing their professional composu
 "JUST RESTART THE COMPUTER!" - she shouted with extreme anger.'''
 ```
 
-The prompt includes:
-
-- Scene setting ("A tech support agent slowly losing their professional
-  composure")
-- Speech enclosed in quotes with explicit delivery instructions
-- Description of the emotional state of the speaker with each quote (e.g. "she
-  said with rehearsed cheerfulness")
-
-### 2. Post-Processing
+## 2. Post-Processing
 
 The code extracts only the text within quotes, removing the descriptive
 parts.
