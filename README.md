@@ -1,10 +1,10 @@
 # McTone
 
-> Generate speech and control the output emotional tone using ElevenLabs.
+> Generate speech with controlled emotional tone, using ElevenLabs.
 
-This project demonstrates a technique to achieve more control over the emotional
-text-to-speech output by explicitly describing the dialogue and post-processing
-the audio.
+McTone demonstrates how to generate natural, emotion-driven text-to-speech by
+combining descriptive prompts and audio post-processing. This technique offers
+simple yet powerful control over the tone and delivery of generated speech.
 
 **Watch the full video:** _coming soon!_
 
@@ -28,13 +28,18 @@ and delivery of the generated speech.**
 
 ## Demo
 
-**No tone control:**
+### No tone control:
 
-<a href="https://github.com/DiogoNeves/mctone/raw/refs/heads/main/output/speech.mp3" target="_blank">No tone control audio</a>
+The speech is generated without descriptive prompts, resulting in flat delivery.
 
-**Tone control:**
+Play: <a href="https://github.com/DiogoNeves/mctone/raw/refs/heads/main/output/speech.mp3" target="_blank">No tone control audio</a>
 
-<a href="https://github.com/DiogoNeves/mctone/raw/refs/heads/main/output/post_process.mp3" target="_blank">Post-processed audio</a>
+### Tone control:
+
+The speech is generated using descriptive prompts, followed by post-processing
+to extract only the dialogue, showcasing controlled emotional delivery.
+
+Play: <a href="https://github.com/DiogoNeves/mctone/raw/refs/heads/main/output/post_process.mp3" target="_blank">Post-processed audio</a>
 
 ## Requirements
 
@@ -46,14 +51,14 @@ and delivery of the generated speech.**
 
 1. Clone this repository:
 
-```
+```sh
 git clone https://github.com/DiogoNeves/mctone.git
 cd mctone
 ```
 
 2. Install the required packages:
 
-```
+```sh
 pip install -r requirements.txt
 ```
 
@@ -67,7 +72,7 @@ ELEVENLABS_API_KEY=your-api-key-here
 
 Run the main script:
 
-```
+```sh
 python generate_speech_post_process.py
 ```
 
@@ -79,11 +84,16 @@ This will generate two files in the `output` directory:
 > You can run `generate_speech.py` to generate simple speech, without the tone
 > control.
 
-### Other files
+### Files
 
-- `generate_speech.py`: Generate simple speech, similar to ElevenLabs tutorial
-- `list_models.py`: List ElevenLabs models, optional utility
-- `requirements.txt`: The required Python packages
+- `generate_speech_post_process.py`: Main script to generate speech with tone
+  control.
+- `generate_speech.py`: Basic speech generation without tone control,
+  following ElevenLabs' tutorial style.
+- `list_models.py`: Utility script to list available ElevenLabs voice models
+  for selection.
+- `requirements.txt`: Contains the Python package dependencies needed for
+  the project.
 
 ## How It Works
 
@@ -92,7 +102,7 @@ delivery of the speech. Let's break down the approach:
 
 ### 1. Prompt Structure
 
-```
+```python
 SPEECH_PROMPT = '''A tech support agent slowly losing their professional composure.
 "Thank you for calling tech support, how may I assist you today?" - she said with rehearsed cheerfulness.
 "Have you tried turning it off and on again?" - she asked professionally.
@@ -128,7 +138,8 @@ Key components:
 ## Contributing
 
 Feel free to raise an issue or suggest improvements in the
-[Discord server](https://discord.gg/kyy5ncWsMa).
+[Discord server](https://discord.gg/kyy5ncWsMa).  
+Subscribe to [my YouTube channel](https://www.youtube.com/@DiogoNeves)!
 
 ## License
 
