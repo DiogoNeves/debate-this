@@ -1,4 +1,4 @@
-# McTone
+![McTone](https://github.com/user-attachments/assets/eeebcd09-6d46-483c-b75b-bc2dd769f0be)
 
 > Generate speech with controlled emotional tone, using ElevenLabs.
 
