@@ -74,7 +74,8 @@ def _get_ranges_to_keep(alignment: Alignments) -> list[tuple[int, int]]:
             if start is None:
                 start = alignment.character_end_times_seconds[i]
             else:
-                ranges.append((start, alignment.character_start_times_seconds[i]))
+                ranges.append((start,
+                               alignment.character_start_times_seconds[i]))
                 start = None
 
     return ranges
