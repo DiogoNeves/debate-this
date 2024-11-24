@@ -30,17 +30,11 @@ and delivery of the generated speech.**
 
 **No tone control:**
 
-<audio controls>
-  <source src="https://github.com/DiogoNeves/mctone/raw/refs/heads/main/output/speech.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
+<a href="https://github.com/DiogoNeves/mctone/raw/refs/heads/main/output/speech.mp3" target="_blank">No tone control audio</a>
 
 **Tone control:**
 
-<audio controls>
-  <source src="https://github.com/DiogoNeves/mctone/raw/refs/heads/main/output/post_process.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
+<a href="https://github.com/DiogoNeves/mctone/raw/refs/heads/main/output/post_process.mp3" target="_blank">Post-processed audio</a>
 
 ## Requirements
 
