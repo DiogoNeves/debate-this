@@ -13,6 +13,14 @@ load_dotenv()
 
 TEXT_TO_SPEECH_URL = "https://api.elevenlabs.io/v1/text-to-speech"
 
+SPEECH_PROMPT = '''The following is an argument between two people at work.
+Fast pace frustration and anger, high energy.
+"How dare you interrupt me while I'm working!" - she shouted angrily.
+"This is absolutely ridiculous," - she expressed in frustration.
+"I can't believe I have to deal with this nonsense!" - she exclaimed.
+"ENOUGH!!" - she exclaimed with extreme rage.
+"I've had it with these constant disruptions!"'''
+
 
 @dataclass
 class Alignments:
@@ -108,16 +116,8 @@ def generate_speech():
     voice_id = "21m00Tcm4TlvDq8ikWAM"  # Rachel
     url = f"{TEXT_TO_SPEECH_URL}/{voice_id}/with-timestamps"
 
-    text = '''The following should be played as two people argument at work.
-Fast pace frustration and anger, high energy.
-"How dare you interrupt me while I'm working!" - she shouted angrily.
-"This is absolutely ridiculous," - she expressed in frustration.
-"I can't believe I have to deal with this nonsense!" - she exclaimed.
-"ENOUGH!" - she exclaimed with rage.
-"I've had it with these constant disruptions!"'''
-
     data = {
-        "text": text,
+        "text": SPEECH_PROMPT,
         "model_id": "eleven_multilingual_v2",
         "voice_settings": {
             "stability": 0.5,
