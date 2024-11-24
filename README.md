@@ -26,6 +26,22 @@ speech using ElevenLabs by:
 **This approach allows for simple yet powerful control over the emotional tone
 and delivery of the generated speech.**
 
+## Demo
+
+**No tone control:**
+
+<audio controls>
+  <source src="output/speech.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+**Tone control:**
+
+<audio controls>
+  <source src="output/post_process.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
 ## Requirements
 
 - [Python](https://www.python.org/downloads/) 3.8+
