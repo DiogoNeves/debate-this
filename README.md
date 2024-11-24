@@ -6,7 +6,7 @@ This project demonstrates a technique to achieve more control over the emotional
 text-to-speech output by explicitly describing the dialogue and post-processing
 the audio.
 
-**What the full video:** _coming soon!_
+**Watch the full video:** _coming soon!_
 
 This is part of an ongoing project using AI voice generation.
 Subscribe to [my YouTube channel](https://www.youtube.com/@DiogoNeves) to
