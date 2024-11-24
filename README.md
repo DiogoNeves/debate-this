@@ -1,6 +1,7 @@
 # McTone
 
-Generate speech and control the output emotional tone using ElevenLabs.  
+> Generate speech and control the output emotional tone using ElevenLabs.
+
 This project demonstrates a technique to achieve more control over the emotional
 text-to-speech output by explicitly describing the dialogue and post-processing
 the audio.
