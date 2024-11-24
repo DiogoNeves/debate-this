@@ -31,14 +31,14 @@ and delivery of the generated speech.**
 **No tone control:**
 
 <audio controls>
-  <source src="output/speech.mp3" type="audio/mpeg">
+  <source src="https://github.com/DiogoNeves/mctone/raw/refs/heads/main/output/speech.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
 
 **Tone control:**
 
 <audio controls>
-  <source src="output/post_process.mp3" type="audio/mpeg">
+  <source src="https://github.com/DiogoNeves/mctone/raw/refs/heads/main/output/post_process.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
 </audio>
 
