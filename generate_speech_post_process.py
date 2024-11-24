@@ -106,11 +106,16 @@ def _get_speech_from_audio(audio_bytes: bytes,
 
 
 def _save_audio(audio_bytes: bytes, file_name: str) -> None:
+    """Save the audio bytes to a file."""
+    # Create output directory if it doesn't exist
+    os.makedirs("output", exist_ok=True)
+
+    # Save the audio bytes to a file
     output_path = f"output/{file_name}.mp3"
     with open(output_path, "wb") as f:
         f.write(audio_bytes)
 
-    print(f"Audio file generated successfully: {output_path}")
+    print(f"Audio file saved: {output_path}")
 
 
 def generate_speech():
