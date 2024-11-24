@@ -74,25 +74,26 @@ def _get_ranges_to_keep(alignment: Alignments) -> list[tuple[int, int]]:
 
 def _get_speech_from_audio(audio_bytes: bytes,
                            ranges_to_keep: list[Range]) -> bytes:
+    """Extract the relevant speech from the audio bytes, using the provided
+    time ranges.
+    """
+    # Create a simple temporary audio file. Simplifies the input to ffmpeg.
     with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as temp_input:
         temp_input.write(audio_bytes)
         temp_input_path = temp_input.name
 
-    with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as temp_output:
-        temp_output_path = temp_output.name
-
     inputs = [ffmpeg.input(temp_input_path, ss=start, to=end)
               for start, end in ranges_to_keep]
-    joined = ffmpeg.concat(*inputs, v=0, a=1).output(temp_output_path)
-    ffmpeg.run(joined)
-
-    with open(temp_output_path, "rb") as f:
-        result_audio_bytes = f.read()
+    output, _ = (
+        ffmpeg
+            .concat(*inputs, v=0, a=1)
+            .output("pipe:", format="mp3")
+            .run(capture_stdout=True, capture_stderr=True)
+    )
 
     os.remove(temp_input_path)
-    os.remove(temp_output_path)
 
-    return result_audio_bytes
+    return output
 
 
 def _save_audio(audio_bytes: bytes, file_name: str) -> None:
