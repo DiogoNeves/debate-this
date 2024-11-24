@@ -107,10 +107,12 @@ def generate_speech():
     voice_id = "21m00Tcm4TlvDq8ikWAM"  # Rachel
     url = f"{TEXT_TO_SPEECH_URL}/{voice_id}/with-timestamps"
 
-    text = '''"How dare you interrupt me while I'm working!" - he shouted angrily.
-"This is absolutely ridiculous," - he growled in frustration.
-"I can't believe I have to deal with this nonsense!" - he exclaimed.
-"ENOUGH!" - he bellowed with rage.
+    text = '''The following should be played as two people argument at work.
+Fast pace frustration and anger, high energy.
+"How dare you interrupt me while I'm working!" - she shouted angrily.
+"This is absolutely ridiculous," - she expressed in frustration.
+"I can't believe I have to deal with this nonsense!" - she exclaimed.
+"ENOUGH!" - she exclaimed with rage.
 "I've had it with these constant disruptions!"'''
 
     data = {
