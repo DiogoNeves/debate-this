@@ -13,13 +13,11 @@ load_dotenv()
 
 TEXT_TO_SPEECH_URL = "https://api.elevenlabs.io/v1/text-to-speech"
 
-SPEECH_PROMPT = '''The following is an argument between two people at work.
-Fast pace frustration and anger, high energy.
-"How dare you interrupt me while I'm working!" - she shouted angrily.
-"This is absolutely ridiculous," - she expressed in frustration.
-"I can't believe I have to deal with this nonsense!" - she exclaimed.
-"ENOUGH!!" - she exclaimed with extreme rage.
-"I've had it with these constant disruptions!"'''
+SPEECH_PROMPT = '''A tech support agent slowly losing their professional composure.
+"Thank you for calling tech support, how may I assist you today?" - she said with rehearsed cheerfulness.
+"Have you tried turning it off and on again?" - she asked professionally.
+"Sir, please... just try turning it off and on!" - she exclaimed with frustration.
+"JUST RESTART THE COMPUTER!" - she shouted with extreme anger.'''
 
 
 @dataclass

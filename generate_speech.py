@@ -11,17 +11,16 @@ api_key = os.getenv("ELEVENLABS_API_KEY")
 client = ElevenLabs(api_key=api_key)
 
 
-text = '''"How dare you interrupt me while I'm working!" - he shouted angrily.
-"This is absolutely ridiculous," -he growled in frustration.
-"I can't believe I have to deal with this nonsense!" - he exclaimed.
-"ENOUGH!" - he bellowed with rage.
-"I've had it with these constant disruptions!"'''
+text = '''Thank you for calling tech support, how may I assist you today?
+Have you tried turning it off and on again?
+Sir, please... just try turning it off and on!
+JUST RESTART THE COMPUTER!'''
 
 
 def generate_speech():
     audio = client.generate(
         text=text,
-        voice="Brian",
+        voice="Rachel",
         model="eleven_multilingual_v2"
     )
 
